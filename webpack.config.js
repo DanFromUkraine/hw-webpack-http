@@ -54,10 +54,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new HtmlWebpackPlugin({
-      template: "./src/handlebars-src/template.hbs",
-      filename: "template.html"
-    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
