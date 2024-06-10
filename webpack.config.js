@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HandlebarsPlugin = require("handlebars-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
@@ -55,17 +54,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    new HtmlWebpackPlugin({
+      template: "./src/handlebars-src/template.hbs",
+      filename: "template.html"
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
     new CopyWebpackPlugin({
       patterns: [{from: "./src/img", to: "images"}]
-    }),
-
-    new HandlebarsPlugin({
-      entry: path.join(process.cwd(), "src", "handlebars-src", "template.hbs"),      // output path and filename(s). This should lie within the webpacks output-folder
-      output: path.join(process.cwd(), "build", "[name].html"),
     }),
   ]
 };

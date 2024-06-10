@@ -1,11 +1,15 @@
 
 
-<div class="template">
-        <h2>Назва картини:</h2>
-        <h3>Автор:</h3>
-        <div class="img-wrapper"><img src="https://www.artic.edu/iiif/2/e966799b-97ee-1cc6-bd2f-a94b4b8bb8f9/full/843,/0/default.jpg" alt="зображення для елементу галереї"></div>
+{{#each this}}
+<div class="template" id="entry-template">
+        <h2>Назва картини: {{this.title}}</h2>
+        <h3>Автор: {{this.author}}</h3>
+        <div class="img-wrapper"><img src="{{this.img_url}}" alt="{{this.thumbnail.alt_text}}"></div>
         <div class="description desc-js">
             <a class="btn-js">показати опис</a>
-            <p class="hidden">Опис:</p>
+            <div class="hidden">
+                {{{this.description}}}
+            </div>
         </div>
 </div>
+{{/each}}

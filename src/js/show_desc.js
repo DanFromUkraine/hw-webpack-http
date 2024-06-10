@@ -1,12 +1,19 @@
-const btns = document.querySelectorAll(".btn-js");
 
-function show_p_el(btn) {
-    let p = btn.nextElementSibling;
-    p.style.display = p.style.display === 'none' ? 'block' : 'none';
-}
+export default function initBtns() {
+    const btns = document.querySelectorAll(".btn-js");
+    function show_p_el(btn) {
+        let div = btn.nextElementSibling;
 
-btns.forEach((btn) => {
-    btn.addEventListener("click", function() {
-        show_p_el(this);
+        console.log("warn here!!");
+        console.dir(btn);
+
+        div.classList.toggle("hidden")
+    }
+    
+    btns.forEach((btn) => {
+        btn.addEventListener("click", function() {
+            show_p_el(btn);
+        });
     });
-});
+    
+}

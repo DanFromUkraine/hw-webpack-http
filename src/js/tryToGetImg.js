@@ -5,6 +5,6 @@ export async function get_img_by_id(api_link) {
       .then((resp) => resp.json())
       .then((resp) => resp.data.image_id);
     const url1 = `https://www.artic.edu/iiif/2/${_img_id}/full/843,/0/default.jpg`;
-    return url1;
+    return _img_id;
   }
   
